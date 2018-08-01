@@ -37,4 +37,44 @@ public class StableMatchingBehine {
 		women[7].list = new int[]  {7 ,4, 1, 6, 9, 2, 0, 8, 3, 5 };
 		women[8].list = new int[]  {1 ,7, 5, 4, 9, 2, 3, 0, 6, 8 };
 		women[9].list = new int[]  {5 ,4, 8, 3, 9, 7, 1, 0, 6, 2 };
+		
+		while(numberOfMactchedMen != x){
+
+			man = nextMan(man, men);
+			if(man == -1)
+				break;
+
+			for( int i = 0; i < x; i++){
+
+				//woman = women[men[man].list[i]]
+				int[] womanList = women[men[man].list[i]].list;
+				int womanPartner = women[men[man].list[i]].partner;
+				int womanPartnerIndex = search(womanPartner, womanList);
+
+				if(!women[men[man].list[i]].matched){//agar zan match nashode
+					
+					break;
+				} else {
+
+					if(search(man, womanList) < womanPartnerIndex){  // moqayeseye olaviate shakhse pishnahad dahande ba partner zan
+
+						break;
+					}
+
+				}
+
+			}//end for
+
+		}//end while
+		
+		public static int search(int find, int[] list){ // peyda kardan index yek mard dar list olaviat zan
+
+		for(int i = 0; i < list.length; i++){
+
+			if(list[i] == find)
+				return i;
+		}
+		return -1;
+
+	}//end search
 	}
