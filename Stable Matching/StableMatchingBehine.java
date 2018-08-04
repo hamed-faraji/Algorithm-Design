@@ -61,8 +61,26 @@ public class AllStableMatchingAnswers {
 				if(!stable)
 					break;
 
-			}if(stable){}
+			}if(stable){
+				f++;
+				ArrayList<Integer> temp = new ArrayList<>();
+				for(int k=0 ; k < matching.length ;k++)
+					temp.add(matching[k]);
+				if(!set.contains(temp))
+				set.add(temp);
+			}
+			
+			matching = swap(matching);
+			stable = true;
 		}
+		
+		for(int j =0 ; j < set.size();j++)
+		for(int i= 0; i < x; i++)
+			if(i == x-1)
+				System.out.println("Man"+ i + " is matched with woman" + set.get(j).get(i) +"\n");
+			else
+			System.out.println("Man"+i + " is matched with woman" + set.get(j).get(i));
+		
 	}
 			public static int[] swap(int[] matching){
 
