@@ -4,6 +4,14 @@ import java.util.Scanner;
 
 public class Knapsack {
 	
+	public static void BruteForce(Objects[] AllObjects, int W) {
+		Objects[] subset;
+		for (int i = 0; i < AllObjects.length; i++) {
+			subset = new Objects[i + 1];
+			FindAllSubSets(AllObjects, subset, 0, 0, 0, 0, W);
+		}
+	}
+	
 	public static void main(String[] args) {
 		String n, k, W, Q;
 		scanner2 = new Scanner(System.in);
@@ -37,6 +45,9 @@ public class Knapsack {
 			String finalW = W;
 			if (W.contains("/"))
 				finalW = W.split("/")[0] + "." + W.split("/")[1];
+			int x = (int) (Float.parseFloat(finalW) * Math.pow(10, tempLength));
+			
+			BruteForce(AllObjects, x)
 	
 	} else {
 	
