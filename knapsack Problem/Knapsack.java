@@ -12,6 +12,22 @@ public class Knapsack {
 		}
 	}
 	
+	public static void FindAllSubSets(Objects[] finalSet, Objects[] subset, int subsetSize, int secondValue, int wei,
+			int val, int W) {
+		if (subsetSize == subset.length) {
+			if (wei <= W)
+				AddToTemp(subset, val, wei);
+		} else
+			for (int j = secondValue; j < finalSet.length; j++) {
+				subset[subsetSize] = finalSet[j];
+				wei += finalSet[j].Weight;
+				val += finalSet[j].Value;
+				FindAllSubSets(finalSet, subset, subsetSize + 1, j + 1, wei, val, W);
+				wei -= finalSet[j].Weight;
+				val -= finalSet[j].Value;
+			}
+	}
+	
 	public static void main(String[] args) {
 		String n, k, W, Q;
 		scanner2 = new Scanner(System.in);
