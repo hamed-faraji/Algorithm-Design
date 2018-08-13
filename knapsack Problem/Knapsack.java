@@ -29,6 +29,14 @@ public class Knapsack {
 					ConvertedWeights[i] = Weights[i];
 				}
 			}
+			for (int i = 0; i < Weights.length; i++) {
+				int x = (int) (Float.parseFloat(ConvertedWeights[i]) * Math.pow(10, tempLength));
+				Objects Temp = new Objects(x, Integer.parseInt(Values[i]), i);
+				AllObjects[i] = Temp;
+			}
+			String finalW = W;
+			if (W.contains("/"))
+				finalW = W.split("/")[0] + "." + W.split("/")[1];
 	
 	} else {
 	
