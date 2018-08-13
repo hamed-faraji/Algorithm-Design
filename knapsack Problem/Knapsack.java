@@ -15,6 +15,23 @@ public class Knapsack {
 		Objects[] AllObjects = new Objects[Weights.length];
 		System.out.println("Have your inputs any Float number?(yes/no)");
 		Q = scanner2.nextLine();
+		int tempLength = 0;
+		if (Q.equals("yes")) {
+			String[] ConvertedWeights = new String[Weights.length];
+			for (int i = 0; i < AllObjects.length; i++) {
+				if (Weights[i].contains("/")) {
+					if (tempLength < Weights[i].split("/")[1].length()) {
+						tempLength = Weights[i].split("/")[1].length();
+						ConvertedWeights[i] = Weights[i].split("/")[0] + "." + Weights[i].split("/")[1];
+					} else
+						ConvertedWeights[i] = Weights[i].split("/")[0] + "." + Weights[i].split("/")[1];
+				} else {
+					ConvertedWeights[i] = Weights[i];
+				}
+			}
+	
+	} else {
+	
 	
 	}
 }
