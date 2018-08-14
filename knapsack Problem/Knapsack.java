@@ -60,6 +60,14 @@ public class Knapsack {
 		return DyTable;
 	}
 	
+	public static int FindMax(int a, int b) {
+		if (a > b)
+			return a;
+		else if (b > a)
+			return b;
+		return a;
+	}
+	
 	public static void AddToTemp(Objects[] S, int value, int weight) {
 		if (MaxValue < value) {
 			MaxValue = value;
