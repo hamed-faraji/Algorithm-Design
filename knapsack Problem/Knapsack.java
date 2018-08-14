@@ -44,6 +44,22 @@ public class Knapsack {
 		}
 	}
 	
+	public static int[][] MakeMatrix(Objects[] AllObjects, int W, int[][] DyTable) {
+		for (int i = 0; i <= W; i++) {
+			DyTable[0][i] = 0;
+		}
+		for (int i = 1; i <= AllObjects.length; i++) {
+			for (int j = 0; j <= W; j++) {
+				if (AllObjects[i - 1].Weight > j)
+					DyTable[i][j] = DyTable[i - 1][j];
+				else
+					DyTable[i][j] = FindMax(DyTable[i - 1][j],
+							AllObjects[i - 1].Value + DyTable[i - 1][j - AllObjects[i - 1].Weight]);
+			}
+		}
+		return DyTable;
+	}
+	
 	public static void AddToTemp(Objects[] S, int value, int weight) {
 		if (MaxValue < value) {
 			MaxValue = value;
