@@ -12,6 +12,24 @@ public class Knapsack {
 		}
 	}
 	
+	public static void AddToTemp(Objects[] S, int value, int weight) {
+		if (MaxValue < value) {
+			MaxValue = value;
+			MaxWeight = weight;
+			if (Answer.size() > 0)
+				Answer.clear();
+			for (int i = 0; i < S.length; i++)
+				Answer.add(S[i]);
+		} else if (MaxValue == value) {
+			if (MaxWeight < weight) {
+				if (Answer.size() > 0)
+					Answer.clear();
+				for (int i = 0; i < S.length; i++)
+					Answer.add(S[i]);
+			}
+		}
+	}
+	
 	public static void FindAllSubSets(Objects[] finalSet, Objects[] subset, int subsetSize, int secondValue, int wei,
 			int val, int W) {
 		if (subsetSize == subset.length) {
