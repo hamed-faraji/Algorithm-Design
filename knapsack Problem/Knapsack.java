@@ -9,6 +9,33 @@ public class Knapsack {
 	static int[][] DyTable;
 	private static Scanner scanner2;
 	
+	public static void DynamicProgramming(Objects[] AllObjects, int W) {
+		DyTable = new int[AllObjects.length + 1][W + 1];
+		MakeMatrix(AllObjects, W, DyTable);
+		int j = 0;
+		int x = AllObjects.length;
+		for (int i = W;;) {
+			for (j = x;;) {
+				if (x == 0) {
+					i = 0;
+					break;
+				} else if (DyTable[j][i] == DyTable[j - 1][i]) {
+					j--;
+					x = j;
+				} else if (DyTable[j][i] != DyTable[j - 1][i]) {
+					Answer.add(AllObjects[j - 1]);
+					i = i - AllObjects[j - 1].Weight;
+					j--;
+					x = j;
+					break;
+				}
+			}
+			if (x == 0 || i == 0)
+				break;
+		}
+	}
+
+	
 	public static void BruteForce(Objects[] AllObjects, int W) {
 		Objects[] subset;
 		for (int i = 0; i < AllObjects.length; i++) {
