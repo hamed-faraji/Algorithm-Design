@@ -87,8 +87,23 @@ public class Knapsack {
 			int x = (int) (Float.parseFloat(finalW) * Math.pow(10, tempLength));
 			
 			BruteForce(AllObjects, x)
+			//DynamicProgramming(AllObjects, x);
+			
+			System.out.print("Final objects are(Based on input sequence): ");
+			for (int j = 0; j < Answer.size(); j++)
+				System.out.print(Answer.get(j).ObjectNumber + 1 + " ");
 	
 	} else {
+		for (int i = 0; i < Weights.length; i++) {
+				Objects Temp = new Objects(Integer.parseInt(Weights[i]), Integer.parseInt(Values[i]), i);
+				AllObjects[i] = Temp;
+			}
+			BruteForce(AllObjects, Integer.parseInt(W));
+			// DynamicProgramming(AllObjects, Integer.parseInt(W));
+
+			System.out.print("Final objects are(Based on input sequence): ");
+			for (int j = 0; j < Answer.size(); j++)
+				System.out.print(Answer.get(j).ObjectNumber + 1 + " and ");
 	
 	
 	}
