@@ -3,6 +3,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Knapsack {
+	static ArrayList<Objects> Answer = new ArrayList<>();
+	static int MaxValue = 0;
+	static int MaxWeight = 0;
+	static int[][] DyTable;
+	private static Scanner scanner2;
 	
 	public static void BruteForce(Objects[] AllObjects, int W) {
 		Objects[] subset;
