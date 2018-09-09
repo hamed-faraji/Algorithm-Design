@@ -69,4 +69,47 @@ public class topologic {
 		nodes.add(v7);
 		
 	}
+	
+	public static void getTopologic(ArrayList<Node> nodes, ArrayList<Node> copy, Node temp, ArrayList<Node> orderList){//temp = node ke bayad hazf shavad
+
+		if(nodes.isEmpty()){
+			orderList.add(temp);
+
+			ordersList.add(orderList);
+
+			return;
+		}else{
+
+			if(temp != null){
+				orderList.add(temp);
+
+				for(int k = 0; k < temp.outputEdge.size(); k++){
+
+					temp.outputEdge.get(k).inputEdge.remove(temp);
+
+				}
+
+			}
+
+			for(int j = 0; j < nodes.size(); j++){
+				if(nodes.get(j).inputEdge.isEmpty()){
+
+					Node tempp = nodes.get(j);
+
+					nodes.remove(tempp);
+
+					getTopologic(nodes, copyArr(nodes), tempp, copyArr(orderList));
+
+					nodes = new ArrayList<Node>(copyArr(copy));
+					
+					//	nodes = new ArrayList<Node>(copy);
+					//nodes.add(tempp);
+
+				}
+
+			}//for j
+
+		}//else
+
+	}//method
 }
