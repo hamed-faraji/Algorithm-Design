@@ -122,4 +122,18 @@ public class topologic {
 		}//else
 
 	}//method
+	
+	public static ArrayList<Node> copyArr(ArrayList<Node> orginal){
+
+		ArrayList<Node> copy = new ArrayList<Node>();
+
+		for(int i = 0; i < orginal.size(); i++){
+
+			copy.add(node(orginal.get(i)));
+			
+		}
+
+		return copy;
+
+	}
 }
