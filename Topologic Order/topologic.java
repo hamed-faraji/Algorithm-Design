@@ -1,0 +1,72 @@
+package TopologicOrder;
+
+import java.util.ArrayList;
+
+public class topologic {
+
+	static ArrayList<ArrayList<Node>> ordersList = new ArrayList<ArrayList<Node>>();
+
+	public static void main(String[] args) {
+
+		ArrayList<Node> nodes = new ArrayList<Node>();
+
+		Node v1 = new Node();
+		v1.name = "v1";
+		Node v2 = new Node();
+		v2.name = "v2";
+		Node v3 = new Node();
+		v3.name = "v3";
+		Node v4 = new Node();
+		v4.name = "v4";
+		Node v5 = new Node();
+		v5.name = "v5";
+		Node v6 = new Node();
+		v6.name = "v6";
+		Node v7 = new Node();
+		v7.name = "v7";
+
+		v1.outputEdge.add(v4);
+		v1.outputEdge.add(v5);
+		v1.outputEdge.add(v7);
+
+		v2.outputEdge.add(v3);
+		v2.outputEdge.add(v5);
+		v2.outputEdge.add(v6);
+
+		v3.inputEdge.add(v2);
+
+		v3.outputEdge.add(v4);
+		v3.outputEdge.add(v5);
+
+		v4.inputEdge.add(v1);
+		v4.inputEdge.add(v3);
+
+		v4.outputEdge.add(v5);
+
+		v5.inputEdge.add(v1);
+		v5.inputEdge.add(v2);
+		v5.inputEdge.add(v3);
+		v5.inputEdge.add(v4);
+
+		v5.outputEdge.add(v6);
+		v5.outputEdge.add(v7);
+
+		v6.inputEdge.add(v2);
+		v6.inputEdge.add(v5);
+
+		v6.outputEdge.add(v7);
+
+		v7.inputEdge.add(v1);
+		v7.inputEdge.add(v5);
+		v7.inputEdge.add(v6);
+
+		nodes.add(v1);
+		nodes.add(v2);
+		nodes.add(v3);
+		nodes.add(v4);
+		nodes.add(v5);
+		nodes.add(v6);
+		nodes.add(v7);
+		
+	}
+}
