@@ -68,6 +68,16 @@ public class topologic {
 		nodes.add(v6);
 		nodes.add(v7);
 		
+		ArrayList<Node> orderList = new ArrayList<Node>();
+		ArrayList<Node> test = copyArr(nodes);
+		
+		getTopologic(nodes, copyArr(nodes), null, orderList);
+
+		System.out.println(ordersList.size());
+
+		for(int i =0 ; i < ordersList.get(0).size(); i++)
+			System.out.print(ordersList.get(0).get(i).name + " ");
+		
 	}
 	
 	public static void getTopologic(ArrayList<Node> nodes, ArrayList<Node> copy, Node temp, ArrayList<Node> orderList){//temp = node ke bayad hazf shavad
