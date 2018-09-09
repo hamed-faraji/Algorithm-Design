@@ -136,4 +136,14 @@ public class topologic {
 		return copy;
 
 	}
+	public static Node node(Node node){
+
+		Node noode = new Node();
+		noode.name = node.name;
+		noode.inputEdge = new ArrayList<Node>(node.inputEdge);
+		noode.outputEdge = new ArrayList<Node>(node.outputEdge);
+
+		return noode;
+
+	}
 }
