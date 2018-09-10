@@ -16,6 +16,25 @@ public class SubsetFinder {
 			System.out.println(listNum.get(i).get(listNum.get(i).size()-1)+" }");
 			c = c + 1;
 		}
+		
+		for( int i = 0; i < listNum.size(); i++ ){	
+			int f = -1;		// f is the flag
+			for(int k = 0; k < a.length; k++ ){
+				if( listNum.get(i).get(listNum.get(i).size()-1) == a[k] ){
+					f = k;
+					break;
+				}
+			}
+
+			for( int j = f+1; j < a.length; j++ ){
+				List<Integer> ln =  new ArrayList<>();
+				NewlistNum.add(ln);
+				for( int u = 0; u < listNum.get(i).size(); u++ )
+					ln.add(listNum.get(i).get(u));		
+				ln.add(a[j]);
+			}
+		}
+		finder( a, NewlistNum, --size );	
 	}
 	
 	public static void  main(String[] args)
