@@ -1,3 +1,4 @@
+package knapsackProblem;
 public class Objects {
 
 		int Weight;

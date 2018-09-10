@@ -1,3 +1,5 @@
+package StableMaching;
+
 import java.util.ArrayList;
 
 public class AllStableMatchingAnswers {
