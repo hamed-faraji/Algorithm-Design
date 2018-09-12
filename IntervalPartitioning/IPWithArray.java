@@ -2,7 +2,7 @@ package intervalPartitioning;
 
 import java.util.ArrayList;
 
-public class IPWithArray {}
+public class IPWithArray {
 
 	public static void main(String[] args) {
 		long startTime = System.nanoTime();
@@ -15,6 +15,9 @@ public class IPWithArray {}
 			SortedIntervals.add(a);
 		}
 		Sort.Sort(SortedIntervals);
+		long endTime   = System.nanoTime();
+		long totalTime = endTime - startTime;
+		System.out.println(totalTime);
 	}
 
 }
