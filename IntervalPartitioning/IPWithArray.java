@@ -3,6 +3,25 @@ package intervalPartitioning;
 import java.util.ArrayList;
 
 public class IPWithArray {
+	
+	static ArrayList<ArrayList<Intervals>> Schedule(ArrayList<Intervals> SortedIntervals) {
+		ArrayList<ArrayList<Intervals>> ClassRooms = new ArrayList<>();
+
+		int n = SortedIntervals.size();
+		int eachOverlab = 0;
+		int finish = SortedIntervals.get(0).end;
+		for (int i = 0; i < n; i++) {
+			if (ClassRooms.size() == 0) {
+				ArrayList<Intervals> a = new ArrayList<>();
+				a.add(SortedIntervals.get(i));
+				ClassRooms.add(a);
+				SortedIntervals.get(i).lable = eachOverlab;
+			} else {
+				}
+		}
+
+		return ClassRooms;
+	}
 
 	public static void main(String[] args) {
 		long startTime = System.nanoTime();
