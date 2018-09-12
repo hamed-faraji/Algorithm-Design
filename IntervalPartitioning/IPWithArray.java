@@ -17,7 +17,24 @@ public class IPWithArray {
 				ClassRooms.add(a);
 				SortedIntervals.get(i).lable = eachOverlab;
 			} else {
+
+				for (int j = 0; j < ClassRooms.size(); j++) {
+					if (finish > ClassRooms.get(j).get((ClassRooms.get(j).size()) - 1).end) {
+						finish = ClassRooms.get(j).get((ClassRooms.get(j).size()) - 1).end;
+						eachOverlab = j;
+					}
 				}
+				if (SortedIntervals.get(i).start < finish) {
+					ArrayList<Intervals> a = new ArrayList<>();
+					a.add(SortedIntervals.get(i));
+					ClassRooms.add(a);
+					SortedIntervals.get(i).lable = ClassRooms.size() - 1;
+				} else {
+					ClassRooms.get(eachOverlab).add(SortedIntervals.get(i));
+				}
+				finish = SortedIntervals.get(i).end;
+				SortedIntervals.get(i).lable = eachOverlab;
+			}
 		}
 
 		return ClassRooms;
