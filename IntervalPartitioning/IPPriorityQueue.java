@@ -25,9 +25,7 @@ public class IPPriorityQueue {
 				SortedIntervals.get(i).lable = ClassRoomNum;
 				pq.offer(SortedIntervals.get(i));
 				ClassRoomNum++;
-				// System.out.println("+");
 			} else {
-				// System.out.println(pq.poll().start);
 				if (SortedIntervals.get(i).start < pq.peek().end) {
 					ArrayList<Intervals> a = new ArrayList<>();
 					a.add(SortedIntervals.get(i));
@@ -35,7 +33,6 @@ public class IPPriorityQueue {
 					SortedIntervals.get(i).lable = ClassRoomNum;
 					pq.offer(SortedIntervals.get(i));
 					ClassRoomNum++;
-					// System.out.println("-");
 				} else {
 					int temp = pq.poll().lable;
 					ClassRooms.get(temp).add(SortedIntervals.get(i));
@@ -62,8 +59,6 @@ public class IPPriorityQueue {
 		System.out.println(Schedule(SortedIntervals));
 		long endTime   = System.nanoTime();
 		long totalTime = endTime - startTime;
-//		System.out.println(ClassRo);
-		// System.out.println();
 	}
 
 }
